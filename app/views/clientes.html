@@ -1,0 +1,47 @@
+<div class="page-header">
+  <h3>Clientes</h3>
+</div>
+
+<table class="table table-striped">
+ 	<thead>
+    <tr>
+      <td colspan="8">
+        <button id="btnNovo" class="btn btn-success" ui-sref="main.novo-cliente">
+          <i class="glyphicon glyphicon-plus"></i> Adicionar
+        </button>
+      </td>
+    </tr>
+ 		<tr>
+      <th scope="col">#</th>
+      <th scope="col">Nome</th>
+ 			<th scope="col">CPF</th>
+      <th scope="col">Idade</th>
+      <th scope="col" class="center">Sexo</th>
+      <th scope="col">Est. civil</th>
+ 			<th scope="col">Dep.</th>
+      <th scope="col">UF</th>
+      <th scope="col">Renda</th>
+ 		</tr>
+ 	</thead>
+ 	<tbody>
+ 		<tr ng-repeat="cliente in clientes" ng-show="clientes && clientes.length > 0">
+ 			<td><a href="" ui-sref="main.editar-cliente({id:cliente.codigo})">{{cliente.codigo}}</a></td>
+ 			<td><a href="" ui-sref="main.editar-cliente({id:cliente.codigo})">{{cliente.nome}}</a></td>
+ 			<td>{{cliente.cpf|brCpf}}</td>
+      <td>{{cliente.idade}}</td>
+ 			<td>{{cliente.sexo}}</td>
+      <td>{{cliente.estadoCivil}}</td>
+      <td>{{cliente.dependentes}}</td>
+      <td>{{cliente.estado}}</td>
+      <td>{{cliente.renda|currency:'R$ '}}</td>
+ 		</tr>
+    <tr ng-show="chefs.length == 0">
+      <td colspan="8" align="center">Nenhum registro para exibir</td>
+    </tr>
+ 	</tbody>
+  <tfoot>
+      <tr>
+        <th colspan="8">{{clientes.length}} cliente(s)<th>
+      <tr>
+  </tfoot>
+</table>
