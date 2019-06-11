@@ -1,0 +1,44 @@
+<div class="page-header">
+  <h3>Propostas</h3>
+</div>
+
+<table class="table table-striped">
+ 	<thead>
+    <tr>
+      <td colspan="3">
+        <form class="form-inline">
+          <label for="inlineFormInputName2">CPF: </label>
+          <input type="text" class="form-control mb-2 mr-sm-2"
+                 id="inlineFormInputName2" placeholder="064.988.234-00"
+                 mask='999.999.999-99' clean="true" ng-model="busca.cpf">
+
+          <button type="submit" class="btn btn-primary mb-2" ng-click="buscarCpf(busca)">Buscar</button>
+        </form>
+      </td>
+    </tr>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nome</th>
+ 			<th scope="col">CPF</th>
+      <th scope="col" class="center">Sexo</th>
+      <th scope="col">Est. civil</th>
+ 		</tr>
+ 	</thead>
+ 	<tbody>
+ 		<tr ng-repeat="cliente in clientes" ng-show="clientes && clientes.length > 0">
+ 			<td><a href="" ui-sref="main.propostas({cliente:cliente.codigo})">{{cliente.codigo}}</a></td>
+ 			<td><a href="" ui-sref="main.propostas({cliente:cliente.codigo})">{{cliente.nome}}</a></td>
+ 			<td>{{cliente.cpf|brCpf}}</td>
+      <td>{{cliente.sexo}}</td>
+      <td>{{cliente.estadoCivil}}</td>
+ 		</tr>
+    <tr ng-hide="clientes.length > 0">
+      <td colspan="5" align="center">Nenhum registro para exibir</td>
+    </tr>
+ 	</tbody>
+  <tfoot>
+    <tr ng-show="clientes && clientes.length > 0">
+      <th colspan="5">{{clientes.length}} cliente(s)<th>
+    <tr>
+  </tfoot>
+</table>

@@ -62,26 +62,6 @@
   z-index: 99999 !important;
 }
 
-#loading-bar .bar {
-  background-color: #9C0E02 !important;
-}
-
-#loading-bar .peg {
-  -moz-box-shadow: #9C0E02 1px 0 6px 1px;
-  -ms-box-shadow: #9C0E02 1px 0 6px 1px;
-  -webkit-box-shadow: #9C0E02 1px 0 6px 1px;
-  box-shadow: #9C0E02 1px 0 6px 1px;
-}
-
-#loading-bar-spinner .spinner-icon {
-  border-top-color:  #9C0E02;
-  border-left-color: #9C0E02;
-}
-
-#loading-bar-spinner {
-  right: 10px;
-}
-
 .input-error{
 	border-color:#a94442;
 }

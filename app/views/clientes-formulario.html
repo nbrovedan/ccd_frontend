@@ -2,14 +2,14 @@
   <h3>Adicionar clientes</h3>
 </div>
 
-<div class="">
+<div class="" style="padding-top:10px">
   <p ng-show="clienteForm.$invalid">Preencha todos os campos marcados com <label class="text-danger">*</label></p>
   <form name="clienteForm">
     <div class="form-row">
       <div class="form-group col-md-12">
         <label for="inputName">Nome <label class="text-danger">*</label></label>
         <input type="text" class="form-control"
-               ng-model="cliente.nome" id="inputName"
+               ng-model="clientes.nome" id="inputName"
                placeholder="Darth Vader" name="nome"
                ng-class="{ 'input-error' : clienteForm.nome.$invalid && !clienteForm.nome.$pristine }"
                required>
@@ -19,7 +19,7 @@
       <div class="form-group col-md-4">
         <label for="inputCPF">CPF <label class="text-danger">*</label></label>
         <input type="text" class="form-control"
-               ng-model="cliente.cpf" id="inputCPF"
+               ng-model="clientes.cpf" id="inputCPF"
                name="cpf" placeholder="787.908.490-86"
                mask='999.999.999-99' clean="true"
                ng-class="{ 'input-error' : clienteForm.cpf.$invalid && !clienteForm.cpf.$pristine }"
@@ -28,7 +28,7 @@
       <div class="form-group col-md-4">
         <label for="inputSexo">Sexo <label class="text-danger">*</label></label>
         <select class="form-control" id="inputSexo"
-                ng-model="cliente.sexo" name="sexo"
+                ng-model="clientes.sexo" name="sexo"
                 ng-class="{ 'input-error' : clienteForm.sexo.$invalid && !clienteForm.sexo.$pristine }"
                 required>
           <option value="M">Masculino</option>
@@ -38,7 +38,7 @@
       </div>
       <div class="form-group col-md-4">
         <label for="inputEstadoCivil">Estado civil <label class="text-danger">*</label></label>
-        <select class="form-control" id="inputEstadoCivil" ng-model="cliente.estadoCivil">
+        <select class="form-control" id="inputEstadoCivil" ng-model="clientes.estadoCivil">
           <option value="Casado">Casado</option>
           <option value="Divorciado">Divorciado</option>
           <option value="Solteiro">Solteiro</option>
@@ -51,7 +51,7 @@
       <div class="form-group col-md-2">
         <label for="inputDependentes">Dependentes <label class="text-danger">*</label></label>
         <input type="number" class="form-control"
-               ng-model="cliente.dependentes" id="inputDependentes"
+               ng-model="clientes.dependentes" id="inputDependentes"
                placeholder="0" name="dependentes"
                ng-class="{ 'input-error' : clienteForm.dependentes.$invalid && !clienteForm.dependentes.$pristine }"
                required>
@@ -59,14 +59,14 @@
       <div class="form-group col-md-2">
         <label for="inputIdade">Idade <label class="text-danger">*</label></label>
         <input type="number" class="form-control"
-               id="inputIdade" ng-model="cliente.idade"
+               id="inputIdade" ng-model="clientes.idade"
                placeholder="30" name="idade" required
                ng-class="{ 'input-error' : clienteForm.idade.$invalid && !clienteForm.idade.$pristine }">
       </div>
       <div class="form-group col-md-4">
         <label for="inputRenda">Renda <label class="text-danger">*</label></label>
         <input type="currency" class="form-control" id="inputRenda"
-               ng-model="cliente.renda" placeholder="2500.00"
+               ng-model="clientes.renda" placeholder="2500.00"
                mask="9?9?9?9?9?9?9?9?9.99" name="renda"
                ng-class="{ 'input-error' : clienteForm.renda.$invalid && !clienteForm.renda.$pristine }"
                required>
@@ -74,7 +74,7 @@
       <div class="form-group col-md-4">
         <label for="inputEstado">Estado <label class="text-danger">*</label></label>
         <select class="form-control" id="inputEstado"
-                ng-model="cliente.estado" name="estado"
+                ng-model="clientes.estado" name="estado"
                 required>
           <option value="AC">Acre</option>
           <option value="AL">Alagoas</option>
@@ -107,14 +107,14 @@
       </div>
       <div class="form-row col-md-3">
         <button type="submit" class="btn btn-primary btn-lg col-md-12"
-                ng-click="salvar(cliente)"
+                ng-click="salvar(clientes)"
                 ng-disabled="clienteForm.$invalid">Salvar</button>
       </div>
       <div class="form-row col-md-2">
         <button type="submit" class="btn btn-warning btn-lg col-md-12" ui-sref="main.clientes">Descartar</button>
       </div>
-      <div class="form-row col-md-3" ng-show="cliente.codigo">
-        <button type="submit" class="btn btn-danger btn-lg col-md-5" ng-click="remover(cliente)">Deletar</button>
+      <div class="form-row col-md-3" ng-show="clientes.codigo">
+        <button type="submit" class="btn btn-danger btn-lg col-md-5" ng-click="remover(clientes)">Deletar</button>
       </div>
     </div>
   </form>

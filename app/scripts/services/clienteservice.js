@@ -17,12 +17,20 @@ angular.module('frontApp')
         return $http.get( Config.serverUrl + '/clientes/' + id);
     };
 
+    var _getClienteByCpf = function (cpf) {
+        return $http.get( Config.serverUrl + '/clientes?cpf=' + cpf);
+    };
+
     var _save = function(cliente){
-      if(cliente.codigo == undefined){
+      if(!cliente.codigo){
         return $http.post(Config.serverUrl + '/clientes', cliente);
       }else{
         return $http.put(Config.serverUrl + '/clientes/' + cliente.codigo, cliente);
       }
+    }
+
+    var _addProposta = function(cliente){
+      return $http.post(Config.serverUrl + '/clientes/' + cliente + '/propostas');
     }
 
     var _delete = function(cliente){
@@ -32,7 +40,9 @@ angular.module('frontApp')
     return{
     	getAll: _getAll,
     	getClienteById: _getClienteById,
+      getClienteByCpf: _getClienteByCpf,
       save: _save,
-      delete : _delete
+      delete : _delete,
+      addProposta: _addProposta
     };
   }]);

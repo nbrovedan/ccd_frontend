@@ -21,6 +21,7 @@
  			<th scope="col">Dep.</th>
       <th scope="col">UF</th>
       <th scope="col">Renda</th>
+      <th scope="col" width="20">Propostas</th>
  		</tr>
  	</thead>
  	<tbody>
@@ -34,14 +35,20 @@
       <td>{{cliente.dependentes}}</td>
       <td>{{cliente.estado}}</td>
       <td>{{cliente.renda|currency:'R$ '}}</td>
+      <td align="center">
+        <button type="button" class="btn btn-secondary btn-xs" style="width:30px"
+                ui-sref="main.propostas({cliente:cliente.codigo})">
+          <i class="fa fa-briefcase fa-fw"></i>
+        </button>
+      </td>
  		</tr>
-    <tr ng-show="chefs.length == 0">
-      <td colspan="8" align="center">Nenhum registro para exibir</td>
+    <tr ng-show="!clientes || clientes.length == 0">
+      <td colspan="9" align="center">Nenhum registro para exibir</td>
     </tr>
  	</tbody>
   <tfoot>
-      <tr>
-        <th colspan="8">{{clientes.length}} cliente(s)<th>
+      <tr ng-show="clientes && clientes.length > 0">
+        <th colspan="9">{{clientes.length}} cliente(s)<th>
       <tr>
   </tfoot>
 </table>

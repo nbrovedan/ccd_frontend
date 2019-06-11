@@ -1,0 +1,72 @@
+<div class="page-header">
+  <h3>Propostas: {{cliente.nome}}</h3>
+</div>
+
+<table class="table table-striped">
+ 	<thead>
+    <tr ng-show="!propostas || propostas.length == 0">
+      <td colspan="8">
+        <button id="btnNovo" class="btn btn-success" ng-click="novaproposta(cliente)">
+          <i class="glyphicon glyphicon-plus"></i> Nova proposta
+        </button>
+      </td>
+    </tr>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Resultado</th>
+      <th scope="col">Limite</th>
+ 		</tr>
+ 	</thead>
+ 	<tbody>
+ 		<tr ng-repeat="proposta in propostas" ng-show="propostas && propostas.length > 0">
+ 			<td><a href="" ui-sref="main.proposta({cliente:cliente.codigo,id:proposta.codigo})">{{proposta.codigo}}</a></td>
+ 			<td><a href="" ui-sref="main.proposta({cliente:cliente.codigo,id:proposta.codigo})">{{proposta.resultado}}</a></td>
+      <td>{{proposta.limiteCredito}}</td>
+ 		</tr>
+    <tr ng-show="!propostas || propostas.length == 0">
+      <td colspan="3" align="center">Nenhum registro para exibir</td>
+    </tr>
+ 	</tbody>
+  <tfoot ng-show="propostas && propostas.length > 0">
+      <tr>
+        <th colspan="2">{{propostas.length}} propostas(s)<th>
+      <tr>
+  </tfoot>
+</table>
+
+<script type="text/ng-template" id="propostasTemplate.html">
+    <div class="modal-header">
+        <h3 class="modal-title" id="modal-title">Detalhes da proposta</h3>
+    </div>
+    <div class="modal-body" id="modal-body">
+      <table class="table">
+        <tr>
+          <td width="30">Nome:</td>
+          <td align="left">{{cliente.nome}}</td>
+        </tr>
+        <tr>
+          <td width="30">CPF:</td>
+          <td align="left">{{cliente.cpf|brCpf}}</td>
+        </tr>
+        <tr>
+          <td width="30">Renda:</td>
+          <td align="left">{{cliente.renda|currency:'R$ '}}</td>
+        </tr>
+        <tr>
+          <td width="30">Idade:</td>
+          <td align="left">{{cliente.idade}} anos</td>
+        </tr>
+        <tr ng-class="{'bg-danger':proposta.resultado == 'Negado', 'bg-success':proposta.resultado == 'Aprovado'}">
+          <td width="30"><b>Situção:</b></td>
+          <td align="left"><b>{{proposta.resultado}}</b></td>
+        </tr>
+        <tr ng-class="{'bg-danger':proposta.resultado == 'Negado', 'bg-success':proposta.resultado == 'Aprovado'}">
+          <td width="30"><b>Limite:</b></td>
+          <td align="left"><b>{{proposta.limiteCredito}}</b></td>
+        </tr>
+      </table>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-primary" ng-click="ok()">OK</button>
+  </div>
+</script>

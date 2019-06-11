@@ -35,6 +35,11 @@ module.exports = function(config) {
       'bower_components/string-mask/src/string-mask.js',
       'bower_components/br-masks/releases/br-masks.js',
       'bower_components/angular-br-filters/release/angular-br-filters.js',
+      'bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
+      'bower_components/ng-alertify/dist/ng-alertify.js',
+      'bower_components/ngAlertify/ngAlertify.js',
+      'bower_components/angular-confirm/js/angular-confirm.js',
+      'bower_components/angular-loading-bar/build/loading-bar.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       'app/scripts/**/*.js',
