@@ -1,12 +1,22 @@
-# front
-
-This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
-version 0.16.0.
-
-## Build & development
-
-Run `grunt` for building and `grunt serve` for preview.
-
-## Testing
-
-Running `grunt test` will run the unit tests with karma.
+# Frontend
+1. Baixar e instalar o Node.js/npm
+```
+https://nodejs.org/en/download/
+```
+2. Instalar o bower
+```
+npm install -g bower
+```
+3. Clonar o repositório
+```
+https://github.com/nbrovedan/ccd_frontend.git
+```
+4. Acessar o repositório baixado e instalar as dependências:
+```
+npm install
+bower install
+```
+5. Iniciar o projeto
+```
+grunt serve
+```
